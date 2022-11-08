@@ -11,7 +11,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.ref }}
-          GH_URL: ${{ github.server.url }}
+          PR_NR: $GITHUB_RUN_NUMBER
+          GH_URL: $GITHUB_SERVER_URL
           REPO_URL: ${{ github.repository }}
-        run: gh pr comment $GH_URL/$REPO_URL/$PR_URL --body "We will rock repositories."
+        run: gh pr comment $GH_URL/$REPO_URL/pull/$PR_NR --body "We will rock repositories."
 
