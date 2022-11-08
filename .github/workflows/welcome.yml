@@ -10,9 +10,9 @@ jobs:
       - name: make a comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.ref.url }}
-          PR_NR: $GITHUB_RUN_NUMBER
+          PR_URL: ${{ github.ref }}
+          PR_NR: ${{ github.ref.run }}
           GH_URL: $GITHUB_SERVER_URL
-          REPO_URL: ${{ github.event.url }}
+          REPO_URL: ${{ github.event.pull }}
         run: gh pr comment $PR_URL --body "We will rock repositories."
 
